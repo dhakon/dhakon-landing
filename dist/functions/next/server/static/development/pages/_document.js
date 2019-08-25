@@ -794,7 +794,7 @@ module.exports = __webpack_require__(/*! regenerator-runtime */ "regenerator-run
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/_next/static/images/favicon-ebc3cc2d94d81f8b4a3c31d2f6d8f460.png";
+module.exports = "/_next/static/images/favicon-ed55ddd762cd1ae8525c968cee99e499.png";
 
 /***/ }),
 
