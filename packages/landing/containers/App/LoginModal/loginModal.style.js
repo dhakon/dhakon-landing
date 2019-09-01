@@ -2,23 +2,25 @@ import styled from 'styled-components';
 import { themeGet } from 'styled-system';
 
 const LoginModalWrapper = styled.div`
-  width: 80%;
-  margin: 71px auto;
-  border-radius: 5px;
-  overflow: hidden;
+  // width: 80%;
+  // margin: 71px auto;
+  // border-radius: 5px;
+  // overflow: hidden;
   background-color: ${themeGet('colors.white', '#ffffff')};
   .col {
     position: relative;
     .patternImage {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      // position: absolute;
+      // width: 100%;
+      // height: 100%;
+      // object-fit: cover;
     }
     @media only screen and (max-width: 991px) {
       width: 100%;
       &.imageCol {
-        display: none;
+        background-color: ${themeGet('colors.primary', '#F2B306')};
+        display: flex;
+        flex: 1;
       }
     }
   }

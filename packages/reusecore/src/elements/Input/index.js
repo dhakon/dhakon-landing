@@ -13,13 +13,14 @@ const Input = ({
   iconPosition,
   passwordShowHide,
   className,
+  placeholder,
   ...props
 }) => {
   // use toggle hooks
   const [state, setState] = useState({
     toggle: false,
     focus: false,
-    value: ''
+    value: '',
   });
 
   // toggle function
@@ -92,6 +93,11 @@ const Input = ({
     htmlFor = label.replace(/\s+/g, '_').toLowerCase();
   }
 
+  // if lable is not empty
+  if (placeholder) {
+    htmlFor = placeholder.replace(/\s+/g, '_').toLowerCase();
+  }
+
   // Label position
   const LabelPosition = isMaterial === true ? 'bottom' : 'top';
 
@@ -110,6 +116,7 @@ const Input = ({
           onChange={handleOnChange}
           onBlur={handleOnBlur}
           onFocus={handleOnFocus}
+          placeholder={placeholder}
         />
       );
       break;
@@ -126,6 +133,7 @@ const Input = ({
             onChange={handleOnChange}
             onBlur={handleOnBlur}
             onFocus={handleOnFocus}
+            placeholder={placeholder}
           />
           {passwordShowHide && (
             <EyeButton
@@ -151,6 +159,7 @@ const Input = ({
             onChange={handleOnChange}
             onBlur={handleOnBlur}
             onFocus={handleOnFocus}
+            placeholder={placeholder}
           />
           {icon && <span className="input-icon">{icon}</span>}
         </div>
@@ -179,6 +188,9 @@ Input.propTypes = {
 
   /** The input value, required for a controlled component. */
   value: PropTypes.oneOf(['string', 'number']),
+
+  /** The input placeholder, required for a controlled component. */
+  placeholder: PropTypes.string,
 
   /** Make default input into material style input. */
   isMaterial: PropTypes.bool,

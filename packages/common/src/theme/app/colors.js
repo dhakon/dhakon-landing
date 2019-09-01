@@ -1,9 +1,9 @@
 const colors = {
   transparent: 'transparent',
-  labelColor: '#767676',
+  labelColor: '#778CA3',
   inactiveField: '#f2f2f2',
   inactiveButton: '#b7dbdd',
-  inactiveIcon: '#EBEBEB',
+  inactiveIcon: '#D1D8E0',
   primaryHover: '#F2B306',
   secondary: '#2B2B2B',
   secondaryHover: '#2B2B2B',
@@ -15,7 +15,8 @@ const colors = {
   primary: '#F2B306',
   headingColor: '#0f2137',
   quoteText: '#343d48',
-  textColor: 'rgba(52, 61, 72, 0.8)',
+  textColor: '#2B2B2B',
+  textPlaceholder: '#D1D8E0',
   linkColor: '#2b9eff',
 };
 

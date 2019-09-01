@@ -2,10 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import { ThemeProvider } from 'styled-components';
 import { appTheme } from 'common/src/theme/app';
-import {
-  GlobalStyle,
-  AppWrapper,
-} from '../containers/App/app.style';
+import { GlobalStyle, AppWrapper } from '../containers/App/app.style';
 import { ResetCSS } from 'common/src/assets/css/style';
 import Banner from '../containers/App/Banner';
 

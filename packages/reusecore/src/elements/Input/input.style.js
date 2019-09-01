@@ -57,10 +57,10 @@ const InputField = styled.div`
   /* Label default style */
   label {
     display: block;
-    color: ${themeGet('colors.labelColor', '#767676')};
-    font-size: ${themeGet('fontSizes.4', '16')}px;
-    font-weight: ${themeGet('fontWeights.4', '500')};
-    margin-bottom: ${themeGet('space.3', '10')}px;
+    color: ${themeGet('colors.labelColor', '#778CA3')};
+    font-size: ${themeGet('fontSizes.1', '12')}px;
+    font-weight: ${themeGet('fontWeights.2', '400')};
+    margin-bottom: ${themeGet('space.2', '5')}px;
     transition: 0.2s ease all;
   }
 
@@ -72,14 +72,19 @@ const InputField = styled.div`
     display: block;
     width: 100%;
     color: ${themeGet('colors.textColor', '#484848')};
+    margin-bottom: 15px;
     box-shadow: none;
-    border-radius: 4px;
+    border-radius: 5px;
     box-sizing: border-box;
     border: 1px solid ${themeGet('colors.inactiveIcon', '#ebebeb')};
     transition: border-color 0.2s ease;
+    ::placeholder { 
+      color: ${themeGet('colors.textPlaceholder', '#D1D8E0')};
+      font-size: 16px;
+    }
     &:focus {
       outline: none;
-      border-color: ${themeGet('colors.primary', '#028489')};
+      border-color: ${themeGet('colors.secondary', '#2B2B2B')};
     }
   }
 

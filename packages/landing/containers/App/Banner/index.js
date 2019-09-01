@@ -47,12 +47,12 @@ const Banner = ({
               title={<Heading {...title} />}
               description={<Text {...description} />} />
             <ButtonWrapper>
-              <Link href="#">
+              <Link href="/signup">
                 <a>
                   <Button {...button} />
                 </a>
               </Link>
-              <Link href="#">
+              <Link href="/signin">
                 <a>
                   <Button {...button} {...btnStyleTwo} className="btn-secondary" />
                 </a>
@@ -60,7 +60,7 @@ const Banner = ({
             </ButtonWrapper>
           </Box>
           <Box {...col} {...imageArea}>
-            <Image src={Illustration} alt="Domain Image" {...image} />
+            <Image src={Illustration} alt="Dhakon Image" {...image} />
           </Box>
         </Box>
       </Container>
