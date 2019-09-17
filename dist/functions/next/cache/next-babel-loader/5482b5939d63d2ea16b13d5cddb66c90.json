@@ -1,0 +1,34 @@
+{
+  "ast": null,
+  "code": "import _extends from \"@babel/runtime-corejs2/helpers/esm/extends\";\nvar _jsxFileName = \"/Users/msnajib/Documents/najib/Dhakon/dhakon-app/packages/landing/containers/Session/withAuthorization.js\";\nvar __jsx = React.createElement;\nimport React from 'react';\nimport Router from 'next/router';\nimport { firebase } from './../firebase';\nimport * as routes from './../../../reusecore/src/constants/routes';\n\nconst withAuthorization = needsAuthorization => Component => {\n  class WithAuthorization extends React.Component {\n    componentDidMount() {\n      firebase.auth.onAuthStateChanged(authUser => {\n        if (!authUser && needsAuthorization) {\n          Router.push(routes.SIGN_IN);\n        }\n      });\n    }\n\n    render() {\n      return __jsx(Component, _extends({}, this.props, {\n        __source: {\n          fileName: _jsxFileName,\n          lineNumber: 19\n        },\n        __self: this\n      }));\n    }\n\n  }\n\n  return WithAuthorization;\n};\n\nexport default withAuthorization;",
+  "map": {
+    "version": 3,
+    "sources": [
+      "/Users/msnajib/Documents/najib/Dhakon/dhakon-app/packages/landing/containers/Session/withAuthorization.js"
+    ],
+    "names": [
+      "React",
+      "Router",
+      "firebase",
+      "routes",
+      "withAuthorization",
+      "needsAuthorization",
+      "Component",
+      "WithAuthorization",
+      "componentDidMount",
+      "auth",
+      "onAuthStateChanged",
+      "authUser",
+      "push",
+      "SIGN_IN",
+      "render",
+      "props"
+    ],
+    "mappings": ";;;AAAA,OAAOA,KAAP,MAAkB,OAAlB;AACA,OAAOC,MAAP,MAAmB,aAAnB;AAEA,SAASC,QAAT,QAAyB,eAAzB;AACA,OAAO,KAAKC,MAAZ,MAAwB,2CAAxB;;AAEA,MAAMC,iBAAiB,GAAIC,kBAAD,IAAyBC,SAAD,IAAe;AAC/D,QAAMC,iBAAN,SAAgCP,KAAK,CAACM,SAAtC,CAAgD;AAC9CE,IAAAA,iBAAiB,GAAG;AAClBN,MAAAA,QAAQ,CAACO,IAAT,CAAcC,kBAAd,CAAiCC,QAAQ,IAAI;AAC3C,YAAI,CAACA,QAAD,IAAaN,kBAAjB,EAAqC;AACnCJ,UAAAA,MAAM,CAACW,IAAP,CAAYT,MAAM,CAACU,OAAnB;AACD;AACF,OAJD;AAKD;;AAEDC,IAAAA,MAAM,GAAG;AACP,aACE,MAAC,SAAD,eAAgB,KAAKC,KAArB;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,SADF;AAGD;;AAb6C;;AAgBhD,SAAOR,iBAAP;AACD,CAlBD;;AAoBA,eAAeH,iBAAf",
+    "sourcesContent": [
+      "import React from 'react';\nimport Router from 'next/router';\n\nimport { firebase } from './../firebase';\nimport * as routes from './../../../reusecore/src/constants/routes';\n\nconst withAuthorization = (needsAuthorization) => (Component) => {\n  class WithAuthorization extends React.Component {\n    componentDidMount() {\n      firebase.auth.onAuthStateChanged(authUser => {\n        if (!authUser && needsAuthorization) {\n          Router.push(routes.SIGN_IN)\n        }\n      });\n    }\n\n    render() {\n      return (\n        <Component { ...this.props } />\n      );\n    }\n  }\n\n  return WithAuthorization;\n}\n\nexport default withAuthorization;"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}

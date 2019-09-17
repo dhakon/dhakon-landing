@@ -14,7 +14,7 @@
     "cpx": "^1.5.0",
     "cross-env": "^5.2.0",
     "firebase-tools": "7.0.2",
-    "husky": "^3.0.0",
+    "husky": "^4.0.0-beta.1",
     "lerna": "^3.15.0",
     "lint-staged": "^9.1.0",
     "prettier": "^1.18.2",
@@ -59,7 +59,21 @@
   "lint-staged": {
     "*.{js,md,css}": [
       "prettier --trailing-comma es5 --single-quote --write",
+      "git add" 
+    ],
+    "*.{js,css,json,md}": [
+      "prettier --write",
       "git add"
     ]
+  },
+  "dependencies": {
+    "@react-firebase/auth": "^0.2.9",
+    "dotenv": "^8.1.0",
+    "firebase": "^6.6.1",
+    "next-redux-wrapper": "^3.0.0",
+    "pretty-quick": "^1.11.1",
+    "react-redux": "^7.1.1",
+    "recompose": "^0.30.0",
+    "redux": "^4.0.4"
   }
 }

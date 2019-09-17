@@ -1,127 +1,195 @@
-import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
-import Link from 'next/link';
-import Box from 'reusecore/src/elements/Box';
-import Text from 'reusecore/src/elements/Text';
-import Logo from 'reusecore/src/elements/UI/Logo';
-import Heading from 'reusecore/src/elements/Heading';
-import Input from 'reusecore/src/elements/Input';
-import Button from 'reusecore/src/elements/Button';
-import Image from 'reusecore/src/elements/Image';
-import Head from 'next/head';
-import { ThemeProvider } from 'styled-components';
-import { appTheme } from 'common/src/theme/app';
-import { ResetCSS } from 'common/src/assets/css/style';
-import { GlobalStyle } from '../../containers/App/app.style';
-import SignupWrapper, { InfoLabel } from './signup.styles';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import Link from "next/link";
+import Router from "next/router";
+import Box from "reusecore/src/elements/Box";
+import Text from "reusecore/src/elements/Text";
+import Logo from "reusecore/src/elements/UI/Logo";
+import Heading from "reusecore/src/elements/Heading";
+import Input from "reusecore/src/elements/Input";
+import Image from "reusecore/src/elements/Image";
+import SignupWrapper, { InfoLabel } from "./signup.styles";
 
+import { AppWithAuthentication } from "./../../containers/App";
+import { auth, db } from "./../../containers/firebase";
+import * as routes from "./../../../reusecore/src/constants/routes";
 
-import Illustration from 'common/src/assets/image/app/farmer.svg';
-import LogoImage from 'common/src/assets/image/app/logo2.png';
+import Illustration from "common/src/assets/image/app/farmer.svg";
+import LogoImage from "common/src/assets/image/app/logo2.png";
 
-const Signup = ({
-  row,
-  col,
-  imageCol,
-  btnStyle,
-  logoStyle,
-  image,
-  imageArea,
-  titleStyle,
-  contentWrapper,
-  descriptionStyle,
-  textInfoTint,
-  textInfoLink
-}) => {
-  const SignupButtonGroup = () => (
-    <Box>
-      <Link href="/home">
-        <a>
-          <Button {...btnStyle} title="Daftar Sekarang" />
-        </a>
-      </Link>
+const SignUpPage = () => (
+  <AppWithAuthentication>
+    <SignUpForm />
+  </AppWithAuthentication>
+);
 
-      <InfoLabel>
-        <Text content="Saya sudah punya dhakon!" {...textInfoTint} />
-        <Link href="/signin">
-          <a>
-            <Button title="Langsung Masuk" {...textInfoLink} />
-            {/* <Text content="Langsung Masuk" {...textInfoLink} /> */}
-          </a>
-        </Link>
-      </InfoLabel>
-    </Box>
-  );
-  return (
-    <ThemeProvider theme={appTheme}>
+const updateByPropertyName = (propertyName, value) => () => ({
+  [propertyName]: value
+});
 
-      <>
-        <Head>
-          <title>Dhakon | Mudahkan urusan lahan anda</title>
-          <meta name="Description" content="Dhakon" />
-          <meta name="theme-color" content="#F2B306" />
-          <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet" />
-        </Head>
+const INITIAL_STATE = {
+  fullname: "",
+  number_phone: "",
+  email: "",
+  password: "",
+  error: null
+};
 
-        <ResetCSS />
-        <GlobalStyle />
+class SignUpForm extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { ...INITIAL_STATE };
+  }
 
-        <SignupWrapper>
+  onSubmit = event => {
+    const { fullname, email, password } = this.state;
 
-          <Box className="row" {...row}>
-            <Box className="col" {...col}>
-              <Box {...contentWrapper}>
-                <Heading content="Daftar" {...titleStyle} />
-                <Text
-                  content="Silahkan masukan data diri anda untuk mendapatkan pelayanan terbaik dari dhakon"
-                  {...descriptionStyle}
-                />
+    auth
+      .doCreateUserWithEmailAndPassword(email, password)
+      .then(authUser => {
+        // Create a user in your own accessible Firebase Database too
+        db.doCreateUser(authUser.user.uid, fullname, email)
+          .then(() => {
+            this.setState(() => ({ ...INITIAL_STATE }));
+            Router.push(routes.HOME);
+          })
+          .catch(error => {
+            this.setState(updateByPropertyName("error", error));
+          });
+      })
+      .catch(error => {
+        this.setState(updateByPropertyName("error", error));
+      });
+
+    event.preventDefault();
+  };
+
+  handleChange(name, value) {
+    let state = this.state;
+    state[name] = value;
+    this.setState({ state });
+  }
+
+  render() {
+    const {
+      row,
+      col,
+      imageCol,
+      btnStyle,
+      logoStyle,
+      imageArea,
+      titleStyle,
+      contentWrapper,
+      descriptionStyle,
+      textInfoTint,
+      textInfoLink
+    } = this.props;
+
+    const { fullname, number_phone, email, password, error } = this.state;
+
+    const isInvalid =
+      fullname === "" || number_phone === "" || email === "" || password === "";
+
+    return (
+      <SignupWrapper>
+        <Box className="row" {...row}>
+          <Box className="col" {...col}>
+            <Box {...contentWrapper}>
+              <Heading content="Daftar" {...titleStyle} />
+              <Text
+                content="Silahkan masukan data diri anda untuk mendapatkan pelayanan terbaik dari dhakon"
+                {...descriptionStyle}
+              />
+              <form onSubmit={this.onSubmit}>
                 <Input
+                  name="fullname"
+                  value={fullname}
+                  onChange={this.handleChange.bind(this, "fullname")}
                   inputType="text"
                   label="Nama Lengkap"
-                  placeholder="Masukan nama lengkap Anda" />
+                  placeholder="Masukan nama lengkap Anda"
+                />
                 <Input
+                  name="number_phone"
+                  value={number_phone}
+                  onChange={this.handleChange.bind(this, "number_phone")}
                   inputType="number"
                   label="Nomor Handphone/Whatsapp"
-                  placeholder="Masukan Nomor HP/WA Anda" />
+                  placeholder="Masukan Nomor HP/WA Anda"
+                />
                 <Input
+                  name="email"
+                  value={email}
+                  onChange={this.handleChange.bind(this, "email")}
                   inputType="email"
                   label="Email"
-                  placeholder="Masukan email Anda jika memiliki" />
+                  placeholder="Masukan email Anda jika memiliki"
+                />
                 <Input
+                  name="password"
+                  value={password}
+                  onChange={this.handleChange.bind(this, "password")}
                   inputType="password"
                   label="Kata Sandi"
                   placeholder="Buat kata sandi Anda"
-                  passwordShowHide={true} />
+                  passwordShowHide={true}
+                />
 
                 <div>
-                  <SignupButtonGroup />
+                  <Box>
+                    <div>
+                      <input type="submit" value="Daftar" />
+                    </div>
+
+                    {/* <Link type="submit">
+                      <a>
+                        <Button disabled={isInvalid} {...btnStyle} title="Daftar Sekarang" />
+                      </a>
+                    </Link> */}
+
+                    {error && (
+                      <InfoLabel>
+                        <Text content={error.message} {...textInfoTint} />
+                      </InfoLabel>
+                    )}
+
+                    <InfoLabel>
+                      <Text
+                        content="Saya sudah punya dhakon!"
+                        {...textInfoTint}
+                      />
+                      <Link href="/signin">
+                        <a>
+                          <Text content="Langsung Masuk" {...textInfoLink} />
+                        </a>
+                      </Link>
+                    </InfoLabel>
+                  </Box>
                 </div>
-              </Box>
-            </Box>
-            <Box className="col imageCol" {...col}>
-              <Box {...imageCol}>
-                <Logo
-                  href="#"
-                  logoSrc={LogoImage}
-                  title="Dhakon"
-                  logoStyle={logoStyle} />
-              </Box>
-              <Box {...imageArea}>
-                <Image src={Illustration} alt="Dhakon Image" />
-              </Box>
+              </form>
             </Box>
           </Box>
-
-        </SignupWrapper>
-      </>
-
-    </ThemeProvider>
-  );
-};
+          <Box className="col imageCol" {...col}>
+            <Box {...imageCol}>
+              <Logo
+                href="#"
+                logoSrc={LogoImage}
+                title="Dhakon"
+                logoStyle={logoStyle}
+              />
+            </Box>
+            <Box {...imageArea}>
+              <Image src={Illustration} alt="Dhakon Image" />
+            </Box>
+          </Box>
+        </Box>
+      </SignupWrapper>
+    );
+  }
+}
 
 // Signup style props
-Signup.propTypes = {
+SignUpForm.propTypes = {
   row: PropTypes.object,
   col: PropTypes.object,
   imageCol: PropTypes.object,
@@ -133,98 +201,98 @@ Signup.propTypes = {
   contentWrapper: PropTypes.object,
   descriptionStyle: PropTypes.object,
   textInfoTint: PropTypes.object,
-  textInfoLink: PropTypes.object,
+  textInfoLink: PropTypes.object
 };
 
 // Signup default style
-Signup.defaultProps = {
+SignUpForm.defaultProps = {
   // Team member row default style
   row: {
     flexBox: true,
-    flexWrap: 'wrap',
+    flexWrap: "wrap"
   },
   // Team member col default style
   col: {
     width: [1, 1 / 2],
-    justifyContent: 'center'
+    justifyContent: "center"
   },
   // Default logo size
   logoStyle: {
-    width: '230px',
-    height: 'auto',
-    ml: '40px',
-    mt: '30px'
+    width: "230px",
+    height: "auto",
+    ml: "40px",
+    mt: "30px"
   },
-  imageCol: {
-  },
+  imageCol: {},
   imageArea: {
-    pt: ['32px', '56px'],
-    pl: ['20px', '32px', '50px', '50px', '100px'],
-    pr: ['20px', '32px', '50px', '50px', '100px'],
-    pb: ['32px', '56px']
+    pt: ["32px", "56px"],
+    pl: ["20px", "32px", "50px", "50px", "100px"],
+    pr: ["20px", "32px", "50px", "50px", "100px"],
+    pb: ["32px", "56px"]
   },
   image: {
-    width: ['0%', '0%', '70%', '70%', '70%'],
-    backgroundColor: 'tomato'
+    width: ["0%", "0%", "70%", "70%", "70%"],
+    backgroundColor: "tomato"
   },
   // Title default style
   titleStyle: {
-    fontSize: ['20px', '24px', '40px', '40px', '40px'],
-    fontWeight: '900',
-    letterSpacing: '-0.01px',
-    color: '#2B2B2B',
-    mt: '35px',
-    mb: '10px',
+    fontSize: ["20px", "24px", "40px", "40px", "40px"],
+    fontWeight: "900",
+    letterSpacing: "-0.01px",
+    color: "#2B2B2B",
+    mt: "35px",
+    mb: "10px"
   },
   // Description default style
   descriptionStyle: {
-    fontSize: ['10px', '14px', '16px', '16px', '16px'],
-    color: '#2B2B2B',
-    mb: '30px',
+    fontSize: ["10px", "14px", "16px", "16px", "16px"],
+    color: "#2B2B2B",
+    mb: "30px"
   },
   // Content wrapper style
   contentWrapper: {
-    pt: ['32px', '56px'],
-    pl: ['20px', '32px', '50px', '50px', '150px'],
-    pr: ['20px', '32px', '50px', '50px', '150px'],
-    pb: ['32px', '56px'],
-    backgroundColor: '#fff',
-    height: '100vh'
+    pt: ["32px", "56px"],
+    pl: ["20px", "32px", "50px", "50px", "150px"],
+    pr: ["20px", "32px", "50px", "50px", "150px"],
+    pb: ["32px", "56px"],
+    backgroundColor: "#fff",
+    height: "100vh"
   },
   // Default button style
   btnStyle: {
-    minWidth: '100%',
-    fontSize: '14px',
-    fontWeight: '900',
-    pl: '22px',
-    pr: '22px',
-    mt: '20px',
-    colors: 'primaryWithBg'
+    minWidth: "100%",
+    fontSize: "14px",
+    fontWeight: "900",
+    pl: "22px",
+    pr: "22px",
+    mt: "20px",
+    colors: "primaryWithBg"
   },
   // Outline button outline style
   outlineBtnStyle: {
-    minWidth: '156px',
-    fontSize: '14px',
-    fontWeight: '500',
-    color: 'rgb(26, 115, 232)',
+    minWidth: "156px",
+    fontSize: "14px",
+    fontWeight: "500",
+    color: "rgb(26, 115, 232)"
   },
   textInfoTint: {
-    textAlign: 'center',
-    fontSize: ['12px', '14px', '15px', '15px', '15px'],
-    fontWeight: '500',
-    color: '#778CA3',
+    textAlign: "center",
+    fontSize: ["12px", "14px", "15px", "15px", "15px"],
+    fontWeight: "500",
+    color: "#778CA3",
     mr: 1
   },
   textInfoLink: {
-    textAlign: 'center',
-    fontSize: ['12px', '14px', '15px', '15px', '15px'],
-    fontWeight: '900',
-    color: '#2B2B2B',
-    type: 'button',
+    textAlign: "center",
+    fontSize: ["12px", "14px", "15px", "15px", "15px"],
+    fontWeight: "900",
+    color: "#2B2B2B",
+    type: "button",
     minHeight: 0,
-    p: '0',
-    bg: 'transparent'
+    p: "0",
+    bg: "transparent"
   }
 };
 
-export default Signup;
+export default SignUpPage;
+export { SignUpForm /* SignUpLink */ };

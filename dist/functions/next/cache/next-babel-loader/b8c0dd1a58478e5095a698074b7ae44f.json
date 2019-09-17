@@ -1,0 +1,37 @@
+{
+  "ast": null,
+  "code": "import firebase from \"firebase/app\";\nimport \"firebase/auth\";\nimport \"firebase/database\";\nvar prodConfig = {\n  apiKey: \"AIzaSyA44AWXUBUySKdSFnLfUGbkEyScSwGqU90\",\n  authDomain: \"dhakon-app-6f0db.firebaseapp.com\",\n  databaseURL: \"https://dhakon-app-6f0db.firebaseio.com\",\n  projectId: \"dhakon-app-6f0db\",\n  storageBucket: \"dhakon-app-6f0db.appspot.com\",\n  messagingSenderId: 604799294040\n};\nvar devConfig = {\n  apiKey: \"AIzaSyA44AWXUBUySKdSFnLfUGbkEyScSwGqU90\",\n  authDomain: 'dhakon-app-6f0db.firebaseapp.com',\n  databaseURL: \"https://dhakon-app-6f0db.firebaseio.com\",\n  projectId: \"dhakon-app-6f0db\",\n  storageBucket: \"dhakon-app-6f0db.appspot.com\",\n  messagingSenderId: 604799294040\n};\nvar config = process.env.NODE_ENV === \"production\" ? prodConfig : devConfig;\n\nif (!firebase.apps.length) {\n  firebase.initializeApp(config);\n}\n\nvar db = firebase.database();\nvar auth = firebase.auth();\nexport { db, auth };",
+  "map": {
+    "version": 3,
+    "sources": [
+      "/Users/msnajib/Documents/najib/Dhakon/dhakon-app/packages/landing/containers/firebase/firebase.js"
+    ],
+    "names": [
+      "firebase",
+      "prodConfig",
+      "apiKey",
+      "authDomain",
+      "databaseURL",
+      "projectId",
+      "storageBucket",
+      "messagingSenderId",
+      "devConfig",
+      "config",
+      "process",
+      "env",
+      "NODE_ENV",
+      "apps",
+      "length",
+      "initializeApp",
+      "db",
+      "database",
+      "auth"
+    ],
+    "mappings": "AAAA,OAAOA,QAAP,MAAqB,cAArB;AACA,OAAO,eAAP;AACA,OAAO,mBAAP;AAEA,IAAMC,UAAU,GAAG;AACjBC,EAAAA,MAAM,EAAE,yCADS;AAEjBC,EAAAA,UAAU,EAAE,kCAFK;AAGjBC,EAAAA,WAAW,EAAE,yCAHI;AAIjBC,EAAAA,SAAS,EAAE,kBAJM;AAKjBC,EAAAA,aAAa,EAAE,8BALE;AAMjBC,EAAAA,iBAAiB,EAAE;AANF,CAAnB;AASA,IAAMC,SAAS,GAAG;AAChBN,EAAAA,MAAM,EAAE,yCADQ;AAEhBC,EAAAA,UAAU,EAAE,kCAFI;AAGhBC,EAAAA,WAAW,EAAE,yCAHG;AAIhBC,EAAAA,SAAS,EAAE,kBAJK;AAKhBC,EAAAA,aAAa,EAAE,8BALC;AAMhBC,EAAAA,iBAAiB,EAAE;AANH,CAAlB;AASA,IAAME,MAAM,GAAGC,OAAO,CAACC,GAAR,CAAYC,QAAZ,KAAyB,YAAzB,GAAwCX,UAAxC,GAAqDO,SAApE;;AAEA,IAAI,CAACR,QAAQ,CAACa,IAAT,CAAcC,MAAnB,EAA2B;AACzBd,EAAAA,QAAQ,CAACe,aAAT,CAAuBN,MAAvB;AACD;;AAED,IAAMO,EAAE,GAAGhB,QAAQ,CAACiB,QAAT,EAAX;AACA,IAAMC,IAAI,GAAGlB,QAAQ,CAACkB,IAAT,EAAb;AAEA,SAASF,EAAT,EAAaE,IAAb",
+    "sourcesContent": [
+      "import firebase from \"firebase/app\";\nimport \"firebase/auth\";\nimport \"firebase/database\";\n\nconst prodConfig = {\n  apiKey: \"AIzaSyA44AWXUBUySKdSFnLfUGbkEyScSwGqU90\",\n  authDomain: \"dhakon-app-6f0db.firebaseapp.com\",\n  databaseURL: \"https://dhakon-app-6f0db.firebaseio.com\",\n  projectId: \"dhakon-app-6f0db\",\n  storageBucket: \"dhakon-app-6f0db.appspot.com\",\n  messagingSenderId: 604799294040\n};\n\nconst devConfig = {\n  apiKey: \"AIzaSyA44AWXUBUySKdSFnLfUGbkEyScSwGqU90\",\n  authDomain: 'dhakon-app-6f0db.firebaseapp.com',\n  databaseURL: \"https://dhakon-app-6f0db.firebaseio.com\",\n  projectId: \"dhakon-app-6f0db\",\n  storageBucket: \"dhakon-app-6f0db.appspot.com\",\n  messagingSenderId: 604799294040\n};\n\nconst config = process.env.NODE_ENV === \"production\" ? prodConfig : devConfig;\n\nif (!firebase.apps.length) {\n  firebase.initializeApp(config);\n}\n\nconst db = firebase.database();\nconst auth = firebase.auth();\n\nexport { db, auth };\n"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}

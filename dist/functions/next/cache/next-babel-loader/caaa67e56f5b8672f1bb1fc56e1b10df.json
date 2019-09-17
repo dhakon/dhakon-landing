@@ -1,0 +1,25 @@
+{
+  "ast": null,
+  "code": "import _objectSpread from \"@babel/runtime-corejs2/helpers/esm/objectSpread\";\nconst INITIAL_STATE = {\n  users: []\n};\n\nconst applySetUsers = (state, action) => _objectSpread({}, state, {\n  users: action.users\n});\n\nfunction userReducer(state = INITIAL_STATE, action) {\n  switch (action.type) {\n    case 'USERS_SET':\n      {\n        return applySetUsers(state, action);\n      }\n\n    default:\n      return state;\n  }\n}\n\nexport default userReducer;",
+  "map": {
+    "version": 3,
+    "sources": [
+      "/Users/msnajib/Documents/najib/Dhakon/dhakon-app/packages/landing/containers/redux/reducers/user.js"
+    ],
+    "names": [
+      "INITIAL_STATE",
+      "users",
+      "applySetUsers",
+      "state",
+      "action",
+      "userReducer",
+      "type"
+    ],
+    "mappings": ";AAAA,MAAMA,aAAa,GAAG;AACpBC,EAAAA,KAAK,EAAE;AADa,CAAtB;;AAIA,MAAMC,aAAa,GAAG,CAACC,KAAD,EAAQC,MAAR,uBACjBD,KADiB;AAEpBF,EAAAA,KAAK,EAAEG,MAAM,CAACH;AAFM,EAAtB;;AAKA,SAASI,WAAT,CAAqBF,KAAK,GAAGH,aAA7B,EAA4CI,MAA5C,EAAoD;AAClD,UAAOA,MAAM,CAACE,IAAd;AACE,SAAK,WAAL;AAAmB;AACjB,eAAOJ,aAAa,CAACC,KAAD,EAAQC,MAAR,CAApB;AACD;;AACD;AAAU,aAAOD,KAAP;AAJZ;AAMD;;AAED,eAAeE,WAAf",
+    "sourcesContent": [
+      "const INITIAL_STATE = {\n  users: [],\n};\n\nconst applySetUsers = (state, action) => ({\n  ...state,\n  users: action.users\n});\n\nfunction userReducer(state = INITIAL_STATE, action) {\n  switch(action.type) {\n    case 'USERS_SET' : {\n      return applySetUsers(state, action);\n    }\n    default : return state;\n  }\n}\n\nexport default userReducer;"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}

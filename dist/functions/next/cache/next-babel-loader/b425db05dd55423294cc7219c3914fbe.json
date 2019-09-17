@@ -1,0 +1,34 @@
+{
+  "ast": null,
+  "code": "import _extends from \"@babel/runtime-corejs2/helpers/esm/extends\";\nvar _jsxFileName = \"/Users/msnajib/Documents/najib/Dhakon/dhakon-app/packages/landing/containers/Session/withAuthentication.js\";\nvar __jsx = React.createElement;\nimport React from 'react';\nimport { connect } from 'react-redux';\nimport { firebase } from './../firebase';\n\nconst withAuthentication = Component => {\n  class WithAuthentication extends React.Component {\n    componentDidMount() {\n      const {\n        onSetAuthUser\n      } = this.props;\n      firebase.auth.onAuthStateChanged(authUser => {\n        authUser ? onSetAuthUser(authUser) : onSetAuthUser(null);\n      });\n    }\n\n    render() {\n      return __jsx(Component, _extends({}, this.props, {\n        __source: {\n          fileName: _jsxFileName,\n          lineNumber: 20\n        },\n        __self: this\n      }));\n    }\n\n  }\n\n  const mapDispatchToProps = dispatch => ({\n    onSetAuthUser: authUser => dispatch({\n      type: 'AUTH_USER_SET',\n      authUser\n    })\n  });\n\n  return connect(null, mapDispatchToProps)(WithAuthentication);\n};\n\nexport default withAuthentication;",
+  "map": {
+    "version": 3,
+    "sources": [
+      "/Users/msnajib/Documents/najib/Dhakon/dhakon-app/packages/landing/containers/Session/withAuthentication.js"
+    ],
+    "names": [
+      "React",
+      "connect",
+      "firebase",
+      "withAuthentication",
+      "Component",
+      "WithAuthentication",
+      "componentDidMount",
+      "onSetAuthUser",
+      "props",
+      "auth",
+      "onAuthStateChanged",
+      "authUser",
+      "render",
+      "mapDispatchToProps",
+      "dispatch",
+      "type"
+    ],
+    "mappings": ";;;AAAA,OAAOA,KAAP,MAAkB,OAAlB;AACA,SAASC,OAAT,QAAwB,aAAxB;AAEA,SAASC,QAAT,QAAyB,eAAzB;;AAEA,MAAMC,kBAAkB,GAAIC,SAAD,IAAe;AACxC,QAAMC,kBAAN,SAAiCL,KAAK,CAACI,SAAvC,CAAiD;AAC/CE,IAAAA,iBAAiB,GAAG;AAClB,YAAM;AAAEC,QAAAA;AAAF,UAAoB,KAAKC,KAA/B;AAEAN,MAAAA,QAAQ,CAACO,IAAT,CAAcC,kBAAd,CAAiCC,QAAQ,IAAI;AAC3CA,QAAAA,QAAQ,GACJJ,aAAa,CAACI,QAAD,CADT,GAEJJ,aAAa,CAAC,IAAD,CAFjB;AAGD,OAJD;AAKD;;AAEDK,IAAAA,MAAM,GAAG;AACP,aACE,MAAC,SAAD,eAAgB,KAAKJ,KAArB;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,SADF;AAGD;;AAf8C;;AAkBjD,QAAMK,kBAAkB,GAAIC,QAAD,KAAe;AACxCP,IAAAA,aAAa,EAAGI,QAAD,IAAcG,QAAQ,CAAC;AAAEC,MAAAA,IAAI,EAAE,eAAR;AAAyBJ,MAAAA;AAAzB,KAAD;AADG,GAAf,CAA3B;;AAIA,SAAOV,OAAO,CAAC,IAAD,EAAOY,kBAAP,CAAP,CAAkCR,kBAAlC,CAAP;AACD,CAxBD;;AA0BA,eAAeF,kBAAf",
+    "sourcesContent": [
+      "import React from 'react';\nimport { connect } from 'react-redux';\n\nimport { firebase } from './../firebase';\n\nconst withAuthentication = (Component) => {\n  class WithAuthentication extends React.Component {\n    componentDidMount() {\n      const { onSetAuthUser } = this.props;\n\n      firebase.auth.onAuthStateChanged(authUser => {\n        authUser\n          ? onSetAuthUser(authUser)\n          : onSetAuthUser(null);\n      });\n    }\n\n    render() {\n      return (\n        <Component { ...this.props } />\n      );\n    }\n  }\n\n  const mapDispatchToProps = (dispatch) => ({\n    onSetAuthUser: (authUser) => dispatch({ type: 'AUTH_USER_SET', authUser }),\n  });\n\n  return connect(null, mapDispatchToProps)(WithAuthentication);\n}\n\nexport default withAuthentication;"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}
