@@ -1,0 +1,7 @@
+{
+  "ast": null,
+  "code": "import _defineProperty from \"@babel/runtime-corejs2/helpers/esm/defineProperty\";\nvar __jsx = React.createElement;\nimport React, { Component } from \"react\";\nimport { connect } from \"react-redux\";\nimport Router from \"next/router\";\nimport * as routes from \"./../../../reusecore/src/constants/routes\";\nimport { AppWrapper } from \"../../containers/App/app.style\";\nimport { AppWithAuthentication } from \"./../../containers/App\";\nimport { ReactTypeformEmbed } from 'react-typeform-embed';\nimport * as typeformEmbed from '@typeform/embed';\n\nclass Form extends Component {\n  constructor(...args) {\n    super(...args);\n\n    _defineProperty(this, \"handleSubmit\", () => {\n      Router.push(routes.LANDING);\n    });\n  }\n\n  componentDidMount() {\n    typeformEmbed.makeWidget(embedElement, 'https://dhakon.typeform.com/to/A7bW0z', {\n      hideHeaders: true,\n      hideFooter: true,\n      opacity: 75,\n      buttonText: \"Take the survey!\",\n      onSubmit: function () {\n        Router.push(routes.LANDING);\n      }\n    });\n  }\n\n  render() {\n    return __jsx(AppWithAuthentication, null, __jsx(AppWrapper, {\n      id: \"embedElement\"\n    }));\n  }\n\n}\n\nconst mapStateToProps = state => ({\n  authUser: state.sessionState.authUser\n});\n\nexport default connect(mapStateToProps)(Form);",
+  "map": null,
+  "metadata": {},
+  "sourceType": "module"
+}

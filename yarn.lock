@@ -2734,6 +2734,27 @@
     url-parse "^1.1.7"
     webfontloader "^1.6.27"
 
+"@typeform/embed@^0.12.1":
+  version "0.12.1"
+  resolved "https://registry.yarnpkg.com/@typeform/embed/-/embed-0.12.1.tgz#05307cca0b762fe50d81ee0a5945a86d401b57ac"
+  integrity sha512-zaQ/bZahbdOexDeOyxKh4L1+pdWQhV5tu2NHl7xA2sR+bRA71hqzwFG920I0aLStOcD8oAO0JSFPVjvBcjCYlg==
+  dependencies:
+    classnames "^2.2.5"
+    core-js "^3.0.1"
+    create-emotion "^9.0.2"
+    create-emotion-styled "^9.0.1"
+    custom-event "^1.0.1"
+    fetch-jsonp "^1.0.6"
+    is-url "^1.2.2"
+    preact "^8.2.7"
+    preact-compat "^3.15.0"
+    prop-types "^15.5.10"
+    scrollbar-width "^3.1.1"
+    spin.js "^2.3.2"
+    tinycolor2 "^1.4.1"
+    url-parse "^1.1.7"
+    webfontloader "^1.6.27"
+
 "@types/body-parser@*":
   version "1.17.1"
   resolved "https://registry.yarnpkg.com/@types/body-parser/-/body-parser-1.17.1.tgz#18fcf61768fb5c30ccc508c21d6fd2e8b3bf7897"

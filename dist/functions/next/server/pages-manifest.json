@@ -1,1 +1,13 @@
-{"/_app":"static/lhAEkhl-FO1SboWuFBFZ7/pages/_app.js","/_document":"static/lhAEkhl-FO1SboWuFBFZ7/pages/_document.js","/_error":"static/lhAEkhl-FO1SboWuFBFZ7/pages/_error.js","/form":"static/lhAEkhl-FO1SboWuFBFZ7/pages/form.js","/home":"static/lhAEkhl-FO1SboWuFBFZ7/pages/home.js","/index":"static/lhAEkhl-FO1SboWuFBFZ7/pages/index.js","/signin":"static/lhAEkhl-FO1SboWuFBFZ7/pages/signin.js","/signin/signin.styles":"static/lhAEkhl-FO1SboWuFBFZ7/pages/signin/signin.styles.js","/signup":"static/lhAEkhl-FO1SboWuFBFZ7/pages/signup.js","/signup/signup.styles":"static/lhAEkhl-FO1SboWuFBFZ7/pages/signup/signup.styles.js","/":"static/lhAEkhl-FO1SboWuFBFZ7/pages/index.js"}
+{
+  "/_app": "static/BcxGH7vyLal2yXmZbsQLG/pages/_app.js",
+  "/_document": "static/BcxGH7vyLal2yXmZbsQLG/pages/_document.js",
+  "/_error": "static/BcxGH7vyLal2yXmZbsQLG/pages/_error.js",
+  "/form": "static/BcxGH7vyLal2yXmZbsQLG/pages/form.js",
+  "/home": "static/BcxGH7vyLal2yXmZbsQLG/pages/home.js",
+  "/index": "static/BcxGH7vyLal2yXmZbsQLG/pages/index.js",
+  "/signin": "static/BcxGH7vyLal2yXmZbsQLG/pages/signin.js",
+  "/signin/signin.styles": "static/BcxGH7vyLal2yXmZbsQLG/pages/signin/signin.styles.js",
+  "/signup": "static/BcxGH7vyLal2yXmZbsQLG/pages/signup.js",
+  "/signup/signup.styles": "static/BcxGH7vyLal2yXmZbsQLG/pages/signup/signup.styles.js",
+  "/": "static/BcxGH7vyLal2yXmZbsQLG/pages/index.js"
+}
