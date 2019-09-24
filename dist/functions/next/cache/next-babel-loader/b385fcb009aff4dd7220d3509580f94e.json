@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { db } from \"./firebase\"; // User API\n\nexport const doCreateUser = (id, username, email) => db.ref(`users/${id}`).set({\n  username,\n  email\n});\nexport const onceGetUsers = () => db.ref(\"users\").once(\"value\"); // Other db APIs ...","map":null,"metadata":{},"sourceType":"module"}

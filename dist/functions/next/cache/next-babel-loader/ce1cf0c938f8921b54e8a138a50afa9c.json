@@ -1,0 +1,1 @@
+{"ast":null,"code":"export const LANDING = '/';\nexport const SIGN_UP = '/signup';\nexport const SIGN_IN = '/signin';\nexport const HOME = '/home';\nexport const FORM = '/form';","map":null,"metadata":{},"sourceType":"module"}

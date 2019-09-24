@@ -1,0 +1,1 @@
+{"ast":null,"code":"import * as auth from \"./auth\";\nimport * as db from \"./db\";\nimport * as firebase from \"./firebase\";\nexport { auth, db, firebase };","map":null,"metadata":{},"sourceType":"module"}
