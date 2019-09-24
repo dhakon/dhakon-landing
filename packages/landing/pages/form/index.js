@@ -15,12 +15,10 @@ class Form extends Component {
   render() {
     return (
       <AppWithAuthentication>
-        <AppWrapper>
-          <ReactTypeformEmbed
-            hideFooter={true}
-            onSubmit={this.handleSubmit}
-            url="https://dhakon.typeform.com/to/A7bW0z" />
-        </AppWrapper>
+        <ReactTypeformEmbed
+          hideFooter={true}
+          onSubmit={this.handleSubmit}
+          url="https://dhakon.typeform.com/to/A7bW0z" />
       </AppWithAuthentication>
     );
   }
