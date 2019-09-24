@@ -1,118 +1,159 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import Box from 'reusecore/src/elements/Box';
 import Text from 'reusecore/src/elements/Text';
 import Logo from 'reusecore/src/elements/UI/Logo';
 import Heading from 'reusecore/src/elements/Heading';
+import Router from "next/router";
 import Input from 'reusecore/src/elements/Input';
 import Button from 'reusecore/src/elements/Button';
 import Image from 'reusecore/src/elements/Image';
-import Head from 'next/head';
-import { ThemeProvider } from 'styled-components';
-import { appTheme } from 'common/src/theme/app';
-import { ResetCSS } from 'common/src/assets/css/style';
-import { GlobalStyle } from '../../containers/App/app.style';
 import SigninWrapper, { InfoLabel } from './signin.styles';
+
+import { AppWithAuthentication } from "./../../containers/App";
+import { auth } from "./../../containers/firebase";
+import * as routes from "./../../../reusecore/src/constants/routes";
 
 
 import Illustration from 'common/src/assets/image/app/farmer.svg';
 import LogoImage from 'common/src/assets/image/app/logo2.png';
 
-const Signin = ({
-  row,
-  col,
-  imageCol,
-  btnStyle,
-  logoStyle,
-  imageArea,
-  titleStyle,
-  contentWrapper,
-  descriptionStyle,
-  textInfoTint,
-  textInfoLink
-}) => {
-  const SigninButtonGroup = () => (
-    <Box>
-      <Link href="/home">
-        <a>
-          <Button {...btnStyle} title="Ayo! Mulai" />
-        </a>
-      </Link>
+const SignInPage = () => (
+  <AppWithAuthentication>
+    <SignInForm />
+  </AppWithAuthentication>
+);
 
-      <InfoLabel>
-        <Text content="Saya belum punya dhakon!" {...textInfoTint} />
-        <Link href="/signup">
-          <a>
-            <Button title="Daftar Dulu" {...textInfoLink} />
-            {/* <Text content="Langsung Masuk" {...textInfoLink} /> */}
-          </a>
-        </Link>
-      </InfoLabel>
-    </Box>
-  );
-  return (
-    <ThemeProvider theme={appTheme}>
+const updateByPropertyName = (propertyName, value) => () => ({
+  [propertyName]: value
+});
 
-      <>
-        <Head>
-          <title>Dhakon | Mudahkan urusan lahan anda</title>
-          <meta name="Description" content="Dhakon" />
-          <meta name="theme-color" content="#F2B306" />
-          <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet" />
-        </Head>
+const INITIAL_STATE = {
+  email: "",
+  password: "",
+  error: null
+};
 
-        <ResetCSS />
-        <GlobalStyle />
+class SignInForm extends Component {
 
-        <SigninWrapper>
+  constructor(props) {
+    super(props);
 
-          <Box className="row" {...row}>
-            <Box className="col" {...col}>
-              <Box {...contentWrapper}>
-                <Heading content="Selamat Datang" {...titleStyle} />
-                <Text
-                  content="Selamat datang kembali di dhakon, silahkan masuk dengan akun anda."
-                  {...descriptionStyle}
+    this.state = { ...INITIAL_STATE };
+  }
+
+  onSubmit = event => {
+    const { email, password } = this.state;
+
+    auth
+      .doSignInWithEmailAndPassword(email, password)
+      .then(() => {
+        this.setState(() => ({ ...INITIAL_STATE }));
+        Router.push(routes.HOME);
+      })
+      .catch(error => {
+        this.setState(updateByPropertyName("error", error));
+      });
+
+    event.preventDefault();
+  };
+
+  handleChange(name, value) {
+    let state = this.state;
+    state[name] = value;
+    this.setState({ state });
+  }
+
+  render() {
+    const {
+      row,
+      col,
+      imageCol,
+      btnStyle,
+      logoStyle,
+      imageArea,
+      titleStyle,
+      contentWrapper,
+      descriptionStyle,
+      textInfoTint,
+      textInfoTintError,
+      textInfoLink
+    } = this.props;
+
+    const { email, password, error } = this.state;
+
+    return (
+      <SigninWrapper>
+        <Box className="row" {...row}>
+          <Box className="col" {...col}>
+            <Box {...contentWrapper}>
+              <Heading content="Selamat Datang" {...titleStyle} />
+              <Text
+                content="Selamat datang kembali di dhakon, silahkan masuk dengan akun anda."
+                {...descriptionStyle}
+              />
+              <form onSubmit={this.onSubmit}>
+                <Input
+                  name="email"
+                  value={email}
+                  onChange={this.handleChange.bind(this, "email")}
+                  inputType="email"
+                  label="Email"
+                  placeholder="Masukan email Anda jika memiliki"
                 />
                 <Input
-                  inputType="number"
-                  label="Nomor Handphone/Whatsapp"
-                  placeholder="Masukan Nomor HP/WA Anda" />
-                <Input
+                  name="password"
+                  value={password}
+                  onChange={this.handleChange.bind(this, "password")}
                   inputType="password"
                   label="Kata Sandi"
                   placeholder="Buat kata sandi Anda"
+                  autoComplete="off"
                   passwordShowHide={true} />
-
                 <div>
-                  <SigninButtonGroup />
+                  <Box>
+                    <Link>
+                      <Button type="submit" {...btnStyle} title="Ayo! Mulai" />
+                    </Link>
+
+                    {error && (
+                      <InfoLabel>
+                        <Text content={error.message} {...textInfoTintError} />
+                      </InfoLabel>
+                    )}
+
+                    <InfoLabel>
+                      <Text content="Saya belum punya dhakon!" {...textInfoTint} />
+                      <Link href="/signup">
+                        <Text content="Daftar Dulu" {...textInfoLink} />
+                      </Link>
+                    </InfoLabel>
+                  </Box>
                 </div>
-              </Box>
-            </Box>
-            <Box className="col imageCol" {...col}>
-              <Box {...imageCol}>
-                <Logo
-                  href="#"
-                  logoSrc={LogoImage}
-                  title="Dhakon"
-                  logoStyle={logoStyle} />
-              </Box>
-              <Box {...imageArea}>
-                <Image src={Illustration} alt="Dhakon Image" />
-              </Box>
+              </form>
             </Box>
           </Box>
-
-        </SigninWrapper>
-      </>
-
-    </ThemeProvider>
-  );
+          <Box className="col imageCol" {...col}>
+            <Box {...imageCol}>
+              <Logo
+                href="#"
+                logoSrc={LogoImage}
+                title="Dhakon"
+                logoStyle={logoStyle} />
+            </Box>
+            <Box {...imageArea}>
+              <Image src={Illustration} alt="Dhakon Image" />
+            </Box>
+          </Box>
+        </Box>
+      </SigninWrapper>
+    );
+  };
 };
 
 // Signin style props
-Signin.propTypes = {
+SignInForm.propTypes = {
   row: PropTypes.object,
   col: PropTypes.object,
   imageCol: PropTypes.object,
@@ -124,11 +165,12 @@ Signin.propTypes = {
   contentWrapper: PropTypes.object,
   descriptionStyle: PropTypes.object,
   textInfoTint: PropTypes.object,
+  textInfoTintError: PropTypes.object,
   textInfoLink: PropTypes.object,
 };
 
 // Signin default style
-Signin.defaultProps = {
+SignInForm.defaultProps = {
   // Team member row default style
   row: {
     flexBox: true,
@@ -206,6 +248,13 @@ Signin.defaultProps = {
     color: '#778CA3',
     mr: 1
   },
+  textInfoTintError: {
+    textAlign: 'center',
+    fontSize: ['12px', '14px', '15px', '15px', '15px'],
+    fontWeight: '500',
+    color: '#eb3b5a',
+    mr: 1
+  },
   textInfoLink: {
     textAlign: 'center',
     fontSize: ['12px', '14px', '15px', '15px', '15px'],
@@ -218,4 +267,6 @@ Signin.defaultProps = {
   }
 };
 
-export default Signin;
+
+export default SignInPage;
+export { SignInForm };

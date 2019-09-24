@@ -47,10 +47,8 @@ const Banner = ({
               title={<Heading {...title} />}
               description={<Text {...description} />} />
             <ButtonWrapper>
-              <Link href="/#">
-                <a>
-                  <Button {...button} />
-                </a>
+              <Link href="/form">
+                <Button {...button} />
               </Link>
             </ButtonWrapper>
           </Box>

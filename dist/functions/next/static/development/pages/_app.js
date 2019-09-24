@@ -19598,7 +19598,7 @@ function sessionReducer() {
   var action = arguments.length > 1 ? arguments[1] : undefined;
 
   switch (action.type) {
-    case 'AUTH_USER_SET':
+    case "AUTH_USER_SET":
       {
         return applySetAuthUser(state, action);
       }
@@ -19638,7 +19638,7 @@ function userReducer() {
   var action = arguments.length > 1 ? arguments[1] : undefined;
 
   switch (action.type) {
-    case 'USERS_SET':
+    case "USERS_SET":
       {
         return applySetUsers(state, action);
       }

@@ -59,7 +59,7 @@
   "lint-staged": {
     "*.{js,md,css}": [
       "prettier --trailing-comma es5 --single-quote --write",
-      "git add" 
+      "git add"
     ],
     "*.{js,css,json,md}": [
       "prettier --write",
@@ -73,6 +73,7 @@
     "next-redux-wrapper": "^3.0.0",
     "pretty-quick": "^1.11.1",
     "react-redux": "^7.1.1",
+    "react-typeform-embed": "^0.2.1",
     "recompose": "^0.30.0",
     "redux": "^4.0.4"
   }

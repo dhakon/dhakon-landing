@@ -7,6 +7,7 @@ import Text from "reusecore/src/elements/Text";
 import Logo from "reusecore/src/elements/UI/Logo";
 import Heading from "reusecore/src/elements/Heading";
 import Input from "reusecore/src/elements/Input";
+import Button from 'reusecore/src/elements/Button';
 import Image from "reusecore/src/elements/Image";
 import SignupWrapper, { InfoLabel } from "./signup.styles";
 
@@ -29,7 +30,7 @@ const updateByPropertyName = (propertyName, value) => () => ({
 
 const INITIAL_STATE = {
   fullname: "",
-  number_phone: "",
+  number_phone: null,
   email: "",
   password: "",
   error: null
@@ -42,7 +43,7 @@ class SignUpForm extends Component {
   }
 
   onSubmit = event => {
-    const { fullname, email, password } = this.state;
+    const { fullname, email, password } = this.state
 
     auth
       .doCreateUserWithEmailAndPassword(email, password)
@@ -82,13 +83,13 @@ class SignUpForm extends Component {
       contentWrapper,
       descriptionStyle,
       textInfoTint,
+      textInfoTintError,
       textInfoLink
     } = this.props;
 
     const { fullname, number_phone, email, password, error } = this.state;
 
-    const isInvalid =
-      fullname === "" || number_phone === "" || email === "" || password === "";
+    const isInvalid = fullname === "" || number_phone === "" || email === "" || password === "";
 
     return (
       <SignupWrapper>
@@ -132,36 +133,25 @@ class SignUpForm extends Component {
                   inputType="password"
                   label="Kata Sandi"
                   placeholder="Buat kata sandi Anda"
-                  passwordShowHide={true}
-                />
+                  autoComplete="off"
+                  passwordShowHide={true} />
 
                 <div>
                   <Box>
-                    <div>
-                      <input type="submit" value="Daftar" />
-                    </div>
-
-                    {/* <Link type="submit">
-                      <a>
-                        <Button disabled={isInvalid} {...btnStyle} title="Daftar Sekarang" />
-                      </a>
-                    </Link> */}
+                    <Link>
+                      <Button type="submit" disabled={isInvalid} {...btnStyle} title="Daftar Sekarang" />
+                    </Link>
 
                     {error && (
                       <InfoLabel>
-                        <Text content={error.message} {...textInfoTint} />
+                        <Text content={error.message} {...textInfoTintError} />
                       </InfoLabel>
                     )}
 
                     <InfoLabel>
-                      <Text
-                        content="Saya sudah punya dhakon!"
-                        {...textInfoTint}
-                      />
+                      <Text content="Saya sudah punya dhakon!" {...textInfoTint} />
                       <Link href="/signin">
-                        <a>
-                          <Text content="Langsung Masuk" {...textInfoLink} />
-                        </a>
+                        <Text content="Langsung Masuk" {...textInfoLink} />
                       </Link>
                     </InfoLabel>
                   </Box>
@@ -201,6 +191,7 @@ SignUpForm.propTypes = {
   contentWrapper: PropTypes.object,
   descriptionStyle: PropTypes.object,
   textInfoTint: PropTypes.object,
+  textInfoTintError: PropTypes.object,
   textInfoLink: PropTypes.object
 };
 
@@ -282,6 +273,13 @@ SignUpForm.defaultProps = {
     color: "#778CA3",
     mr: 1
   },
+  textInfoTintError: {
+    textAlign: "center",
+    fontSize: ["12px", "14px", "15px", "15px", "15px"],
+    fontWeight: "500",
+    color: "#eb3b5a",
+    mr: 1
+  },
   textInfoLink: {
     textAlign: "center",
     fontSize: ["12px", "14px", "15px", "15px", "15px"],
@@ -295,4 +293,4 @@ SignUpForm.defaultProps = {
 };
 
 export default SignUpPage;
-export { SignUpForm /* SignUpLink */ };
+export { SignUpForm };

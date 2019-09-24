@@ -3,7 +3,7 @@ import Head from "next/head";
 import { compose } from "recompose";
 import { ThemeProvider } from "styled-components";
 import { appTheme } from "common/src/theme/app";
-import { GlobalStyle, AppWrapper } from "../App/app.style";
+import { GlobalStyle } from "../App/app.style";
 import { ResetCSS } from "common/src/assets/css/style";
 
 import withAuthentication from "./../Session/withAuthentication";
@@ -25,7 +25,7 @@ const App = ({ children }) => (
       <ResetCSS />
       <GlobalStyle />
 
-      <AppWrapper>{children}</AppWrapper>
+      {children}
     </>
   </ThemeProvider>
 );
