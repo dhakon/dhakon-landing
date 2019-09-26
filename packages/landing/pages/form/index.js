@@ -4,7 +4,7 @@ import Router from "next/router";
 import * as routes from "./../../../reusecore/src/constants/routes";
 import { AppWrapper } from "../../containers/App/app.style";
 import { AppWithAuthentication } from "./../../containers/App";
-import * as typeformEmbed from "@typeform/embed";
+import typeformEmbed from '@typeform/embed';
 import axios from "axios";
 
 // const form_id = 'A7bW0z';
