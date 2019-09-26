@@ -1,0 +1,33 @@
+{
+  "ast": null,
+  "code": "var _jsxFileName = \"/Users/msnajib/Documents/najib/Dhakon/dhakon-app/packages/landing/containers/App/index.js\";\nvar __jsx = React.createElement;\nimport React, { useState, useEffect } from \"react\";\nimport Head from \"next/head\";\nimport { compose } from \"recompose\";\nimport { ThemeProvider } from \"styled-components\";\nimport { appTheme } from \"common/src/theme/app\";\nimport { GlobalStyle } from \"../App/app.style\";\nimport { ResetCSS } from \"common/src/assets/css/style\";\nimport withAuthentication from \"./../Session/withAuthentication\";\nimport withAuthorization from \"./../Session/withAuthorization\";\n\nvar App = function App(_ref) {\n  var children = _ref.children;\n  return __jsx(ThemeProvider, {\n    theme: appTheme,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 13\n    },\n    __self: this\n  }, __jsx(React.Fragment, null, __jsx(Head, {\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 15\n    },\n    __self: this\n  }, __jsx(\"title\", {\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 16\n    },\n    __self: this\n  }, \"Dhakon | Mudahkan urusan lahan anda\"), __jsx(\"meta\", {\n    name: \"Description\",\n    content: \"Dhakon\",\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 17\n    },\n    __self: this\n  }), __jsx(\"meta\", {\n    name: \"theme-color\",\n    content: \"#F2B306\",\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 18\n    },\n    __self: this\n  }), __jsx(\"link\", {\n    href: \"https://fonts.googleapis.com/css?family=Muli&display=swap\",\n    rel: \"stylesheet\",\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 19\n    },\n    __self: this\n  })), __jsx(ResetCSS, {\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 25\n    },\n    __self: this\n  }), __jsx(GlobalStyle, {\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 26\n    },\n    __self: this\n  }), children));\n};\n\nvar AppWithAuthentication = compose(withAuthentication, withAuthorization(false))(App);\nvar AppWithAuthorization = compose(withAuthentication, withAuthorization(true))(App);\nexport { AppWithAuthentication, AppWithAuthorization };",
+  "map": {
+    "version": 3,
+    "sources": [
+      "/Users/msnajib/Documents/najib/Dhakon/dhakon-app/packages/landing/containers/App/index.js"
+    ],
+    "names": [
+      "React",
+      "useState",
+      "useEffect",
+      "Head",
+      "compose",
+      "ThemeProvider",
+      "appTheme",
+      "GlobalStyle",
+      "ResetCSS",
+      "withAuthentication",
+      "withAuthorization",
+      "App",
+      "children",
+      "AppWithAuthentication",
+      "AppWithAuthorization"
+    ],
+    "mappings": ";;AAAA,OAAOA,KAAP,IAAgBC,QAAhB,EAA0BC,SAA1B,QAA2C,OAA3C;AACA,OAAOC,IAAP,MAAiB,WAAjB;AACA,SAASC,OAAT,QAAwB,WAAxB;AACA,SAASC,aAAT,QAA8B,mBAA9B;AACA,SAASC,QAAT,QAAyB,sBAAzB;AACA,SAASC,WAAT,QAA4B,kBAA5B;AACA,SAASC,QAAT,QAAyB,6BAAzB;AAEA,OAAOC,kBAAP,MAA+B,iCAA/B;AACA,OAAOC,iBAAP,MAA8B,gCAA9B;;AAEA,IAAMC,GAAG,GAAG,SAANA,GAAM;AAAA,MAAGC,QAAH,QAAGA,QAAH;AAAA,SACV,MAAC,aAAD;AAAe,IAAA,KAAK,EAAEN,QAAtB;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,KACE,4BACE,MAAC,IAAD;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,KACE;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,2CADF,EAEE;AAAM,IAAA,IAAI,EAAC,aAAX;AAAyB,IAAA,OAAO,EAAC,QAAjC;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IAFF,EAGE;AAAM,IAAA,IAAI,EAAC,aAAX;AAAyB,IAAA,OAAO,EAAC,SAAjC;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IAHF,EAIE;AACE,IAAA,IAAI,EAAC,2DADP;AAEE,IAAA,GAAG,EAAC,YAFN;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IAJF,CADF,EAWE,MAAC,QAAD;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IAXF,EAYE,MAAC,WAAD;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IAZF,EAcGM,QAdH,CADF,CADU;AAAA,CAAZ;;AAqBA,IAAMC,qBAAqB,GAAGT,OAAO,CACnCK,kBADmC,EAEnCC,iBAAiB,CAAC,KAAD,CAFkB,CAAP,CAG5BC,GAH4B,CAA9B;AAIA,IAAMG,oBAAoB,GAAGV,OAAO,CAClCK,kBADkC,EAElCC,iBAAiB,CAAC,IAAD,CAFiB,CAAP,CAG3BC,GAH2B,CAA7B;AAKA,SAASE,qBAAT,EAAgCC,oBAAhC",
+    "sourcesContent": [
+      "import React, { useState, useEffect } from \"react\";\nimport Head from \"next/head\";\nimport { compose } from \"recompose\";\nimport { ThemeProvider } from \"styled-components\";\nimport { appTheme } from \"common/src/theme/app\";\nimport { GlobalStyle } from \"../App/app.style\";\nimport { ResetCSS } from \"common/src/assets/css/style\";\n\nimport withAuthentication from \"./../Session/withAuthentication\";\nimport withAuthorization from \"./../Session/withAuthorization\";\n\nconst App = ({ children }) => (\n  <ThemeProvider theme={appTheme}>\n    <>\n      <Head>\n        <title>Dhakon | Mudahkan urusan lahan anda</title>\n        <meta name=\"Description\" content=\"Dhakon\" />\n        <meta name=\"theme-color\" content=\"#F2B306\" />\n        <link\n          href=\"https://fonts.googleapis.com/css?family=Muli&display=swap\"\n          rel=\"stylesheet\"\n        />\n      </Head>\n\n      <ResetCSS />\n      <GlobalStyle />\n\n      {children}\n    </>\n  </ThemeProvider>\n);\n\nconst AppWithAuthentication = compose(\n  withAuthentication,\n  withAuthorization(false)\n)(App);\nconst AppWithAuthorization = compose(\n  withAuthentication,\n  withAuthorization(true)\n)(App);\n\nexport { AppWithAuthentication, AppWithAuthorization };\n"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}

@@ -1,0 +1,17 @@
+{
+  "ast": null,
+  "code": "import styled from 'styled-components';\nexport const ButtonWrapper = styled.div.withConfig({\n  displayName: \"bannerstyle__ButtonWrapper\",\n  componentId: \"sc-1q82f00-0\"\n})([\"position:relative;@media screen and (max-width:991px) and (min-width:767px){display:flex;.reusecore__button{padding-left:0;padding-right:0;&.btn-secondary{margin-left:15px;&:hover{background:transparent !important;box-shadow:none !important;}}}}@media (max-width:480px){display:flex;flex-direction:column;.reusecore__button{width:100%;&.btn-secondary{border:0;}}}\"]);",
+  "map": {
+    "version": 3,
+    "sources": [
+      "/Users/msnajib/Documents/najib/Dhakon/dhakon-app/packages/landing/containers/App/BannerHome/banner.style.js"
+    ],
+    "names": ["styled", "ButtonWrapper", "div"],
+    "mappings": "AAAA,OAAOA,MAAP,MAAmB,mBAAnB;AAEA,OAAO,MAAMC,aAAa,GAAGD,MAAM,CAACE,GAAV;AAAA;AAAA;AAAA,mXAAnB",
+    "sourcesContent": [
+      "import styled from 'styled-components';\r\n\r\nexport const ButtonWrapper = styled.div`\r\n  position: relative;\r\n  @media screen and (max-width: 991px) and (min-width: 767px) {\r\n    display: flex;\r\n    .reusecore__button {\r\n      padding-left: 0;\r\n      padding-right: 0;\r\n      &.btn-secondary {\r\n        margin-left: 15px;\r\n        &:hover {\r\n          background: transparent !important;\r\n          box-shadow: none !important;\r\n        }\r\n      }\r\n    }\r\n  }\r\n  @media (max-width: 480px) {\r\n    display: flex;\r\n    flex-direction: column;\r\n    .reusecore__button {\r\n      width: 100%;\r\n      &.btn-secondary {\r\n        border: 0;\r\n      }\r\n    }\r\n  }\r\n`;\r\n"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}

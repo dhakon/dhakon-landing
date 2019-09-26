@@ -1,13 +1,8 @@
 {
-  "/_app": "static/BcxGH7vyLal2yXmZbsQLG/pages/_app.js",
-  "/_document": "static/BcxGH7vyLal2yXmZbsQLG/pages/_document.js",
-  "/_error": "static/BcxGH7vyLal2yXmZbsQLG/pages/_error.js",
-  "/form": "static/BcxGH7vyLal2yXmZbsQLG/pages/form.js",
-  "/home": "static/BcxGH7vyLal2yXmZbsQLG/pages/home.js",
-  "/index": "static/BcxGH7vyLal2yXmZbsQLG/pages/index.js",
-  "/signin": "static/BcxGH7vyLal2yXmZbsQLG/pages/signin.js",
-  "/signin/signin.styles": "static/BcxGH7vyLal2yXmZbsQLG/pages/signin/signin.styles.js",
-  "/signup": "static/BcxGH7vyLal2yXmZbsQLG/pages/signup.js",
-  "/signup/signup.styles": "static/BcxGH7vyLal2yXmZbsQLG/pages/signup/signup.styles.js",
-  "/": "static/BcxGH7vyLal2yXmZbsQLG/pages/index.js"
+  "/_app": "static/development/pages/_app.js",
+  "/_document": "static/development/pages/_document.js",
+  "/_error": "static/development/pages/_error.js",
+  "/form": "static/development/pages/form.js",
+  "/index": "static/development/pages/index.js",
+  "/": "static/development/pages/index.js"
 }

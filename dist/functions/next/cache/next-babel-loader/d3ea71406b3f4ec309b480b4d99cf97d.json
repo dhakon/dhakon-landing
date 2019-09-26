@@ -1,1 +1,0 @@
-{"ast":null,"code":"import { createStore } from \"redux\";\nimport rootReducer from \"../reducers\";\n\nvar initStore = function initStore() {\n  var store = createStore(rootReducer);\n  return store;\n};\n\nexport default initStore;","map":null,"metadata":{},"sourceType":"module"}

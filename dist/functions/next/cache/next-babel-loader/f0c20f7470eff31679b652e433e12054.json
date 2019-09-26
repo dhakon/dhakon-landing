@@ -1,0 +1,34 @@
+{
+  "ast": null,
+  "code": "import _extends from \"@babel/runtime-corejs2/helpers/esm/extends\";\nvar _jsxFileName = \"/Users/msnajib/Documents/najib/Dhakon/dhakon-app/packages/landing/pages/_app.js\";\nvar __jsx = React.createElement;\nimport React, { Fragment } from \"react\";\nimport { Modal } from \"@redq/reuse-modal\";\nimport \"@redq/reuse-modal/es/index.css\";\nimport App, { Container } from \"next/app\";\nimport { Provider } from \"react-redux\";\nimport withRedux from \"next-redux-wrapper\";\nimport initStore from \"./../containers/redux/store\";\n\nclass EnhancedApp extends App {\n  static async getInitialProps({\n    Component,\n    ctx\n  }) {\n    return {\n      pageProps: Component.getInitialProps ? await Component.getInitialProps(ctx) : {}\n    };\n  }\n\n  render() {\n    const {\n      Component,\n      pageProps,\n      store\n    } = this.props;\n    return __jsx(Fragment, {\n      __source: {\n        fileName: _jsxFileName,\n        lineNumber: 22\n      },\n      __self: this\n    }, __jsx(Container, {\n      __source: {\n        fileName: _jsxFileName,\n        lineNumber: 23\n      },\n      __self: this\n    }, __jsx(Provider, {\n      store: store,\n      __source: {\n        fileName: _jsxFileName,\n        lineNumber: 24\n      },\n      __self: this\n    }, __jsx(Component, _extends({}, pageProps, {\n      __source: {\n        fileName: _jsxFileName,\n        lineNumber: 25\n      },\n      __self: this\n    })))));\n  }\n\n}\n\nexport default withRedux(initStore)(EnhancedApp);",
+  "map": {
+    "version": 3,
+    "sources": [
+      "/Users/msnajib/Documents/najib/Dhakon/dhakon-app/packages/landing/pages/_app.js"
+    ],
+    "names": [
+      "React",
+      "Fragment",
+      "Modal",
+      "App",
+      "Container",
+      "Provider",
+      "withRedux",
+      "initStore",
+      "EnhancedApp",
+      "getInitialProps",
+      "Component",
+      "ctx",
+      "pageProps",
+      "render",
+      "store",
+      "props"
+    ],
+    "mappings": ";;;AAAA,OAAOA,KAAP,IAAgBC,QAAhB,QAAgC,OAAhC;AACA,SAASC,KAAT,QAAsB,mBAAtB;AACA,OAAO,gCAAP;AACA,OAAOC,GAAP,IAAcC,SAAd,QAA+B,UAA/B;AACA,SAASC,QAAT,QAAyB,aAAzB;AACA,OAAOC,SAAP,MAAsB,oBAAtB;AAEA,OAAOC,SAAP,MAAsB,6BAAtB;;AAEA,MAAMC,WAAN,SAA0BL,GAA1B,CAA8B;AAC5B,eAAaM,eAAb,CAA6B;AAAEC,IAAAA,SAAF;AAAaC,IAAAA;AAAb,GAA7B,EAAiD;AAC/C,WAAO;AACLC,MAAAA,SAAS,EAAEF,SAAS,CAACD,eAAV,GACP,MAAMC,SAAS,CAACD,eAAV,CAA0BE,GAA1B,CADC,GAEP;AAHC,KAAP;AAKD;;AAEDE,EAAAA,MAAM,GAAG;AACP,UAAM;AAAEH,MAAAA,SAAF;AAAaE,MAAAA,SAAb;AAAwBE,MAAAA;AAAxB,QAAkC,KAAKC,KAA7C;AACA,WACE,MAAC,QAAD;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,OACE,MAAC,SAAD;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,OACE,MAAC,QAAD;AAAU,MAAA,KAAK,EAAED,KAAjB;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,OACE,MAAC,SAAD,eAAeF,SAAf;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,OADF,CADF,CADF,CADF;AASD;;AApB2B;;AAuB9B,eAAeN,SAAS,CAACC,SAAD,CAAT,CAAqBC,WAArB,CAAf",
+    "sourcesContent": [
+      "import React, { Fragment } from \"react\";\r\nimport { Modal } from \"@redq/reuse-modal\";\r\nimport \"@redq/reuse-modal/es/index.css\";\r\nimport App, { Container } from \"next/app\";\r\nimport { Provider } from \"react-redux\";\r\nimport withRedux from \"next-redux-wrapper\";\r\n\r\nimport initStore from \"./../containers/redux/store\";\r\n\r\nclass EnhancedApp extends App {\r\n  static async getInitialProps({ Component, ctx }) {\r\n    return {\r\n      pageProps: Component.getInitialProps\r\n        ? await Component.getInitialProps(ctx)\r\n        : {}\r\n    };\r\n  }\r\n\r\n  render() {\r\n    const { Component, pageProps, store } = this.props;\r\n    return (\r\n      <Fragment>\r\n        <Container>\r\n          <Provider store={store}>\r\n            <Component {...pageProps} />\r\n          </Provider>\r\n        </Container>\r\n      </Fragment>\r\n    );\r\n  }\r\n}\r\n\r\nexport default withRedux(initStore)(EnhancedApp);\r\n"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}

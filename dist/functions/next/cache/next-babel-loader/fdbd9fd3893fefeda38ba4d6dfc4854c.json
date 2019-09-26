@@ -1,0 +1,17 @@
+{
+  "ast": null,
+  "code": "import { createStore } from \"redux\";\nimport rootReducer from \"../reducers\";\n\nvar initStore = function initStore() {\n  var store = createStore(rootReducer);\n  return store;\n};\n\nexport default initStore;",
+  "map": {
+    "version": 3,
+    "sources": [
+      "/Users/msnajib/Documents/najib/Dhakon/dhakon-app/packages/landing/containers/redux/store/index.js"
+    ],
+    "names": ["createStore", "rootReducer", "initStore", "store"],
+    "mappings": "AAAA,SAASA,WAAT,QAA4B,OAA5B;AACA,OAAOC,WAAP,MAAwB,aAAxB;;AAEA,IAAMC,SAAS,GAAG,SAAZA,SAAY,GAAM;AACtB,MAAMC,KAAK,GAAGH,WAAW,CAACC,WAAD,CAAzB;AAEA,SAAOE,KAAP;AACD,CAJD;;AAMA,eAAeD,SAAf",
+    "sourcesContent": [
+      "import { createStore } from \"redux\";\nimport rootReducer from \"../reducers\";\n\nconst initStore = () => {\n  const store = createStore(rootReducer);\n\n  return store;\n};\n\nexport default initStore;\n"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}

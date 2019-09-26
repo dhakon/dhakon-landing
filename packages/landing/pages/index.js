@@ -37,10 +37,8 @@ import { connect } from "react-redux";
 import { AppWrapper } from "../containers/App/app.style";
 import BannerHome from "../containers/App/BannerHome";
 import { AppWithAuthentication } from "./../containers/App";
-
 class App extends Component {
   render() {
-
     return (
       <AppWithAuthentication>
         <AppWrapper>
@@ -50,8 +48,6 @@ class App extends Component {
     );
   }
 }
-
-
 
 const mapStateToProps = state => ({
   authUser: state.sessionState.authUser

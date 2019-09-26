@@ -1,0 +1,187 @@
+{
+  "id": "A7bW0z",
+  "title": "Cari Teman Kerja",
+  "theme": {
+    "href": "https://api.typeform.com/themes/PWGRSx"
+  },
+  "workspace": {
+    "href": "https://api.typeform.com/workspaces/eJNuvS"
+  },
+  "settings": {
+    "is_public": true,
+    "is_trial": false,
+    "language": "en",
+    "progress_bar": "percentage",
+    "show_progress_bar": true,
+    "show_typeform_branding": true,
+    "meta": {
+      "allow_indexing": false
+    },
+    "notifications": {
+      "self": {
+        "recipients": ["dhakondotid@gmail.com"],
+        "subject": "Typeform: New response for {{form:title}}",
+        "message": "Your typeform {{form:title}} has a new response:\n{{form:all_answers}}\nLog in to view or download your responses at\nhttps://admin.typeform.com/form/A7bW0z/results\n{{link:report}}\nYou can turn off or configure self notifications for this typeform at\nhttps://admin.typeform.com/form/A7bW0z/create/hash/notifications\n\nTeam Typeform\nHow you ask is everything\n\nWant your responses automatically sent to a Google Sheet, MailChimp, Trello, or your own CRM? *Set up an integration to do that and much more:*\nhttps://admin.typeform.com/form/A7bW0z/configure\n",
+        "enabled": false
+      }
+    }
+  },
+  "welcome_screens": [
+    {
+      "ref": "27384cfc-3ad7-468e-a640-e81bde2bdeb4",
+      "title": "Temukan teman kerja dengan cepat dan mudah",
+      "properties": {
+        "show_button": true,
+        "button_text": "Start"
+      },
+      "attachment": {
+        "type": "image",
+        "href": "https://images.typeform.com/images/XZq2WnWJdvrt"
+      }
+    }
+  ],
+  "thankyou_screens": [
+    {
+      "ref": "default_tys",
+      "title": "Thanks for completing this typeform\nNow *create your own* — it's free, easy, & beautiful",
+      "properties": {
+        "show_button": true,
+        "share_icons": false,
+        "button_mode": "redirect",
+        "button_text": "Create a *typeform*",
+        "redirect_url": "https://admin.typeform.com/powered-by?utm_campaign=A7bW0z&utm_source=typeform.com-14515517-Basic&utm_medium=typeform&utm_content=typeform-thankyoubutton&utm_term=EN"
+      },
+      "attachment": {
+        "type": "image",
+        "href": "https://images.typeform.com/images/2dpnUBBkz2VN"
+      }
+    }
+  ],
+  "fields": [
+    {
+      "id": "aFrDDVgjPrO8",
+      "title": "Siapa nama Anda",
+      "ref": "6c210df2-a340-4edd-93c0-e2a132b58d77",
+      "properties": {
+        "description": "Masukan nama lengkap Anda"
+      },
+      "validations": {
+        "required": true
+      },
+      "type": "short_text"
+    },
+    {
+      "id": "OZ7zBTRMChey",
+      "title": "Masukan nomor telfon anda",
+      "ref": "1828fdb2-b3a4-488f-ace2-084115eeafe1",
+      "properties": {
+        "description": "Masukan nomor anda yang dapat dihubungi",
+        "default_country_code": "ID"
+      },
+      "validations": {
+        "required": true
+      },
+      "type": "phone_number"
+    },
+    {
+      "id": "zHCA4kZyl7zW",
+      "title": "Pilih Jenis Pekerjaan",
+      "ref": "e7cb1838-cb45-4dc1-9f36-8d6bd6891f45",
+      "properties": {
+        "description": "Tentukan jenis pekerjaan yang anda miliki",
+        "randomize": false,
+        "allow_multiple_selection": false,
+        "allow_other_choice": true,
+        "vertical_alignment": true,
+        "choices": [
+          {
+            "id": "pM86Hegpr0am",
+            "ref": "c8dffa4e-c5cd-4d23-8f6a-fafb62208021",
+            "label": "Matun"
+          },
+          {
+            "id": "eJn1hzAzXST1",
+            "ref": "dda6a957-93e9-4d83-adda-d28504d02364",
+            "label": "Tandur"
+          },
+          {
+            "id": "spDzHfPncVDM",
+            "ref": "1f3e93ef-b6cd-4287-b922-4d2ffb011234",
+            "label": "Ulur Bawang"
+          },
+          {
+            "id": "GA8Uuy4XQVZf",
+            "ref": "07eaafc5-1d2c-4dd5-901f-aa8ee21c49fa",
+            "label": "Ndaut"
+          },
+          {
+            "id": "k1hCydG1WoXS",
+            "ref": "f0bb06eb-5496-40de-af12-84fcf314c0df",
+            "label": "Methal"
+          },
+          {
+            "id": "WjTry6j5Vsxq",
+            "ref": "6f8c064d-7918-48da-afdb-04d09cfe2e28",
+            "label": "Panen Bawang"
+          }
+        ]
+      },
+      "validations": {
+        "required": true
+      },
+      "type": "multiple_choice"
+    },
+    {
+      "id": "X5pKhH2J0YIm",
+      "title": "Jumlah Pekerja Yang Dibutuhkan untuk {{field:e7cb1838-cb45-4dc1-9f36-8d6bd6891f45}}",
+      "ref": "f9b1ff14-f91f-4a4d-bf8c-97c2352b4196",
+      "validations": {
+        "required": true,
+        "min_value": 1
+      },
+      "type": "number"
+    },
+    {
+      "id": "G4XYFGi272q8",
+      "title": "Pilih Durasi Kerja",
+      "ref": "fc1034cc-e38a-4a77-b3a8-a59978674166",
+      "properties": {
+        "randomize": false,
+        "allow_multiple_selection": false,
+        "allow_other_choice": false,
+        "vertical_alignment": true,
+        "choices": [
+          {
+            "id": "NC8upKUMZgSW",
+            "ref": "c11861a8-f3eb-4ad3-b49b-9e1c5fce524e",
+            "label": "Setengah Hari"
+          },
+          {
+            "id": "Rci70xKKb9c5",
+            "ref": "7370cdba-4018-4642-a6dd-f0214a626005",
+            "label": "Sehari Penuh"
+          }
+        ]
+      },
+      "validations": {
+        "required": true
+      },
+      "type": "multiple_choice"
+    },
+    {
+      "id": "L54WLSKx7QZl",
+      "title": "Alamat tempat bekerja",
+      "ref": "4d30c861-fe1d-46f8-a340-9aefab1a56ab",
+      "properties": {
+        "description": "Berikan informasi detail tentang sawah anda baik alamat atau yang lainnya"
+      },
+      "validations": {
+        "required": false
+      },
+      "type": "long_text"
+    }
+  ],
+  "_links": {
+    "display": "https://dhakon.typeform.com/to/A7bW0z"
+  }
+}

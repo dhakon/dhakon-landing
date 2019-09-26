@@ -1,1 +1,0 @@
-{"ast":null,"code":"import { combineReducers } from \"redux\";\nimport sessionReducer from \"./session\";\nimport userReducer from \"./user\";\nvar rootReducer = combineReducers({\n  sessionState: sessionReducer,\n  userState: userReducer\n});\nexport default rootReducer;","map":null,"metadata":{},"sourceType":"module"}
