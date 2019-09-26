@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import { compose } from "recompose";
 import { ThemeProvider } from "styled-components";
-import { appTheme } from "common/src/theme/app";
-import { GlobalStyle } from "../App/app.style";
-import { ResetCSS } from "common/src/assets/css/style";
+import { appTheme } from "./../../../common/src/theme/app";
+import { GlobalStyle } from "./app.style";
+import { ResetCSS } from "./../../../common/src/assets/css/style";
 
 import withAuthentication from "./../Session/withAuthentication";
 import withAuthorization from "./../Session/withAuthorization";
