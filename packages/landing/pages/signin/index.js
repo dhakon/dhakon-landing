@@ -1,14 +1,14 @@
 import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import Box from 'reusecore/src/elements/Box';
-import Text from 'reusecore/src/elements/Text';
-import Logo from 'reusecore/src/elements/UI/Logo';
-import Heading from 'reusecore/src/elements/Heading';
+import Box from './../../../reusecore/src/elements/Box';
+import Text from './../../../reusecore/src/elements/Text';
+import Logo from './../../../reusecore/src/elements/UI/Logo';
+import Heading from './../../../reusecore/src/elements/Heading';
 import Router from "next/router";
-import Input from 'reusecore/src/elements/Input';
-import Button from 'reusecore/src/elements/Button';
-import Image from 'reusecore/src/elements/Image';
+import Input from './../../../reusecore/src/elements/Input';
+import Button from './../../../reusecore/src/elements/Button';
+import Image from './../../../reusecore/src/elements/Image';
 import SigninWrapper, { InfoLabel } from './signin.styles';
 
 import { AppWithAuthentication } from "./../../containers/App";

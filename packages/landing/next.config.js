@@ -3,6 +3,9 @@ const withTM = require("next-transpile-modules");
 const withOptimizedImages = require("next-optimized-images");
 const withFonts = require("next-fonts");
 const withCSS = require("@zeit/next-css");
+const withMDX = require('@next/mdx')({
+  extension: /\.mdx?$/
+})
 const webpack = require("webpack");
 require("dotenv").config();
 
@@ -27,7 +30,10 @@ module.exports = withPlugins(
       }
     ],
     withFonts,
-    withCSS
+    withCSS,
+    withMDX({
+      pageExtensions: ['js', 'jsx', 'md', 'mdx']
+    })
   ],
   {
     distDir: "../../dist/functions/next"
