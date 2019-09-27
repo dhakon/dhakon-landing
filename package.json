@@ -65,6 +65,8 @@
     ]
   },
   "dependencies": {
+    "@babel/runtime": "^7.6.2",
+    "@babel/runtime-corejs2": "^7.6.2",
     "@react-firebase/auth": "^0.2.9",
     "@typeform/api-client": "^1.5.2",
     "@typeform/embed": "^0.12.1",

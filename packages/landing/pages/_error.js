@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import ErrorSec from '../containers/Error';
-import { ResetCSS } from 'common/src/assets/css/style';
+import { ResetCSS } from './../../ommon/src/assets/css/style';
 
 class Error extends React.Component {
   static async getInitialProps({ res, err }) {
