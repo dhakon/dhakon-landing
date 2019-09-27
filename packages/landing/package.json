@@ -12,16 +12,6 @@
     "now-build": "next build && next export -o dist",
     "netlify-build": "next build && next export"
   },
-  "lint-staged": {
-    "*.{js,md,css}": [
-      "prettier --trailing-comma es5 --single-quote --write",
-      "git add"
-    ],
-    "*.{js,css,json,md}": [
-      "prettier --write",
-      "git add"
-    ]
-  },
   "dependencies": {
     "@glidejs/glide": "^3.3.0",
     "@redq/reuse-modal": "^1.1.9",

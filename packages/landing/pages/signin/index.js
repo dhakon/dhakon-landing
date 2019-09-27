@@ -16,8 +16,8 @@ import { auth } from "./../../containers/firebase";
 import * as routes from "./../../../reusecore/src/constants/routes";
 
 
-import Illustration from 'common/src/assets/image/app/farmer.svg';
-import LogoImage from 'common/src/assets/image/app/logo2.png';
+import Illustration from './../../../common/src/assets/image/app/farmer.svg';
+import LogoImage from './../../../common/src/assets/image/app/logo2.png';
 
 const SignInPage = () => (
   <AppWithAuthentication>

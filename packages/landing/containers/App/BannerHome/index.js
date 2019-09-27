@@ -7,12 +7,12 @@ import Heading from 'reusecore/src/elements/Heading';
 import Logo from 'reusecore/src/elements/UI/Logo';
 import Button from 'reusecore/src/elements/Button';
 import Image from 'reusecore/src/elements/Image';
-import FeatureBlock from 'common/src/components/FeatureBlock';
-import Container from 'common/src/components/UI/Container';
+import FeatureBlock from './../../../../common/src/components/FeatureBlock';
+import Container from './../../../../common/src/components/UI/Container';
 import { ButtonWrapper } from './banner.style';
 
-import Illustration from 'common/src/assets/image/app/farmer.svg';
-import LogoImage from 'common/src/assets/image/app/logo2.png';
+import Illustration from './../../../../common/src/assets/image/app/farmer.svg';
+import LogoImage from './../../../../common/src/assets/image/app/logo2.png';
 
 const Banner = ({
   SectionWrapper,

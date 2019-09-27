@@ -7,7 +7,7 @@ import Text from 'reusecore/src/elements/Text';
 import Heading from 'reusecore/src/elements/Heading';
 import Image from 'reusecore/src/elements/Image';
 import Button from 'reusecore/src/elements/Button';
-import ErrorImage from 'common/src/assets/image/404.svg';
+import ErrorImage from './../../../common/src/assets/image/404.svg';
 import { home } from 'react-icons-kit/entypo/home';
 import { ccw } from 'react-icons-kit/entypo/ccw';
 import { ErrorWrapper, ErrorConatent, ButtonWrapper } from './error.style';
