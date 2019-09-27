@@ -40,7 +40,6 @@ module.exports = withPlugins(
       }, {});
 
       config.plugins.push(new webpack.DefinePlugin(env));
-      config.node = { fs: "empty" };
 
       return config;
     }
